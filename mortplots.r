@@ -10,6 +10,9 @@ library(ggthemes)
 # # get collared morts by looking at Animal ID
 # cmorts = morts[grep("S", morts$Animal_ID, perl=T),]
 
+# Scale the font size for the plots:
+FONT_SIZE = 16
+
 
 # read lacy's mort summary excel:
 mort_file = 'mortsummary.csv'
@@ -33,7 +36,8 @@ ggplot(morts) +
   scale_fill_brewer(palette="Set3") +
   xlab('Year') + ylab('fraction of Morts') +
   ggtitle('Mortality Cause Composition', subtitle='(annual totals scaled to 1)') + 
-  theme_bw()
+  theme_bw() +
+  theme(text=element_text(size=FONT_SIZE))
 
 # Stacked bar chart
 # (each year raw values)
@@ -42,5 +46,6 @@ ggplot(morts) +
   scale_fill_brewer(palette="Set3") + 
   xlab('Year') + ylab('# of Morts') +
   ggtitle('Mortalities') +
-  theme_bw()
+  theme_bw() +
+  theme(text=element_text(size=FONT_SIZE))
 
